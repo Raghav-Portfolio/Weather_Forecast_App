@@ -1,4 +1,7 @@
 import streamlit as st
+import plotly.express as px
+import pandas as pd
+from backend import get_data
 
 st.title("Weather Forecast for the Next Days")
 
@@ -10,3 +13,8 @@ option = st.selectbox('Select data to view',
                       ('Temperature', 'Sky'))
 
 st.subheader(f"{option} for the next {days} days in {place}")
+
+data = get_data(place, days, option)
+
+figure = px.line()
+st.px_chart()
